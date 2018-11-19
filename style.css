@@ -574,3 +574,76 @@ body {
 	font-size: 1.5rem;
 	font-family: sans-serif;
 }
+
+
+/*gameover*/
+
+#game_over {
+     background-image: url(img/gameover.svg);
+    background-size: 100%;
+    width: 50vw;
+    height: 35vw;
+    top: 11vw;
+    left: 24vw;
+    position: absolute;
+    z-index: 3;
+    background-repeat: no-repeat;
+
+}
+
+#din_score {
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+    font-family: 'VT323', monospace;
+    top: 15.2vw;
+    left: 22vw;
+    position: absolute;
+}
+
+#repeat {
+    position: absolute;
+	left: 18vw;
+	top: 23vw;
+	width: 15vw;
+	height: 15vw;
+	background-image: url(/img/spil_igen.svg);
+    background-repeat: no-repeat;
+	background-size: 100%;
+    z-index: 3;
+    cursor: pointer;
+}
+
+
+
+/*phone animation*/
+
+#animation {
+    position: absolute;
+    top: 17vw;
+    left: 68vw;
+    z-index: 30
+}
+
+#animation_sprite {
+    background-size: 1400% 100%;
+    width: 20vw;
+    height: 20vw;
+    background-image: url(img/mobil.svg);
+
+    animation: phone_animation_kf 2s infinite linear;
+    animation-timing-function: steps(13);
+}
+
+
+
+@keyframes phone_animation_kf {
+    0% {
+        background-position: 0% 0;
+    }
+
+
+    100% {
+        background-position: -1300%, 0;
+    }
+}

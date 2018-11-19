@@ -2,7 +2,8 @@ window.addEventListener("load", sidenVises);
 
 "use strict";
 let points = 0;
-let times = 20;
+let time = 2;
+let timeLeftTimeOut;
 
 let showSettingsEffektSound = true;
 let showSettingsMusic = true;
@@ -145,6 +146,7 @@ function startGame() {
 	document.querySelector("#min_musik").play();
 	document.querySelector("#points").classList.remove("hide");
 
+    timeLeft();
 	//	document.querySelector("#start").classList.remove("fade_out");
 	document.querySelector("#phone1").addEventListener("click", clickPhone);
 	document.querySelector("#phone2").addEventListener("click", clickPhone);
@@ -231,6 +233,36 @@ function nyPhone() {
 
 }
 
+
+function timeLeft() {
+    console.log(time + " sekunder tilbage")
+
+    if(time > 0){
+        time--;
+        timeLeftTimeOut = setTimeout(timeLeft, 1000)
+
+    } else {
+     gameOver();
+    }
+}
+
+function gameOver() {
+    console.log("gameover");
+    document.querySelector("#game_over").classList.remove("hide");
+    document.querySelector("#menu_background").classList.add("blur");
+    document.querySelector("#game_background").classList.add("blur");
+    document.querySelector("#game_elements").classList.add("blur");
+    document.querySelector("#points").classList.add("blur");
+    document.querySelector("#settings").classList.add("blur");
+    document.querySelector("#din_score").classList.remove("hide");
+    document.querySelector("#din_score").innerHTML = points;
+    document.querySelector("#repeat").addEventListener("click", restart)
+}
+
+function restart() {
+    window.history.go(0);
+
+}
 
 
 function gameStatus() {
